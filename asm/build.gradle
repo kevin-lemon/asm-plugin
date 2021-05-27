@@ -1,0 +1,51 @@
+apply plugin: 'kotlin'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        java {
+            srcDir "src/main/java"
+        }
+
+        kotlin {
+            srcDir "src/main/kotlin"
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+repositories {
+    mavenCentral()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:3.6.2'
+}
+version='1.0.0'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.asm.plugin'
+            pom.artifactId = "timer-plugin"
+            pom.version = version
+            repository(url: uri('D:/repo'))
+        }
+    }
+}
