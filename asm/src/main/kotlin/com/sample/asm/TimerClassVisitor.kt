@@ -26,6 +26,6 @@ class TimerClassVisitor(classVisitor:ClassVisitor):ClassVisitor(Opcodes.ASM5,cla
         exceptions: Array<out String>?
     ): MethodVisitor {
         val methodVisitor =  super.visitMethod(access, name, descriptor, signature, exceptions)
-        return TimerRecordMethodVisitor(api,methodVisitor,access,name?:"",descriptor?:"")
+        return TimerRecordMethodVisitor(className,api,methodVisitor,access,name?:"",descriptor?:"")
     }
 }
