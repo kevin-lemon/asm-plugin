@@ -69,6 +69,7 @@ class TimerTransform :Transform(),Plugin<Project>{
                     )
                     FileUtils.copyDirectoryToDirectory(directoryInput.file,dest)
                 }
+                //androidX 不处理jar会报错找不到类
                 transformInput.jarInputs.forEach {
                     val dest = outputProvider?.getContentLocation(
                         it.name,
