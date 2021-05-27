@@ -33,8 +33,6 @@ class TimerTransform :Transform(),Plugin<Project>{
 
     override fun apply(p0: Project) {
         p0.extensions.create<TimerExtension>("timerprovider",TimerExtension::class.java)
-        var extension = p0.extensions.getByType(TimerExtension::class.java)
-        print("wxk"+extension.enableJar)
         val appExtension = p0.extensions.getByType(AppExtension::class.java)
         appExtension.registerTransform(this)
     }

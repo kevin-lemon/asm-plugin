@@ -1,5 +1,6 @@
 package com.sample.asm
 
+import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.commons.AdviceAdapter
@@ -15,6 +16,11 @@ class TimerRecordMethodVisitor(
     name: String,
     descriptor: String
 ) : AdviceAdapter(api, methodVisitor, access, name, descriptor) {
+
+    override fun visitAnnotation(descriptor: String?, visible: Boolean): AnnotationVisitor {
+        return super.visitAnnotation(descriptor, visible)
+
+    }
 
     override fun onMethodEnter() {
         val label0 = Label()
